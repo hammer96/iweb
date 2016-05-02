@@ -139,7 +139,7 @@
 							</a>
 						</li>
 						<li id="reqreprowductor" >
-							<a href="<?php echo base_url(); ?>raza">
+							<a href="<?php echo base_url(); ?>secado">
 								<span class="title"> <i class="fa fa-book"></i> Secado </span>
 							</a>
 						</li>
