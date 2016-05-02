@@ -38,20 +38,24 @@
 							<table class="table table-bordered table-hover table-full-width" id="sample_1">
 								<thead>
 									<tr>
-										<th class="center"># Codigo</th>
-										<th class="center">Descripcion</th>
-										<th class="center">Abreviatura</th>
+										<th class="center"># RP</th>
+										<th class="center">Nombre</th>
+										<th class="center">Fecha Nac.</th>
+										<th class="center">Raza</th>
+										<th class="center">Tipo Reg.</th>
 										<th class="center">Accion</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php 
 										foreach ($Animales as $value) { ?> <tr>
-											<td class="center"><?php echo $value->ani_id?></td>
 											<td class="center"><?php echo $value->ani_rp?></td>
 											<td class="center"><?php echo $value->ani_nombre?></td>
+											<td class="center"><?php echo $value->ani_fechanac?></td>
+											<td class="center"><?php echo $value->ani_raza?></td>
+											<td class="center"><?php echo $value->ani_tiporegi?></td>
 											<td class="center">
-												<button class="sb-toggle btn btn-warning btn-xs" onclick="modificar(<?php echo $value->ani_id; ?>)"><i class="fa fa-edit"></i></button>
+												<button class="sb-toggle btn btn-warning btn-xs" onclick="modificar('<?php echo $value->ani_id ?>')"><i class="fa fa-edit"></i></button>
 												<button class="btn btn-danger btn-xs"><i class="fa fa-times" onclick="eliminar(<?php echo $value->ani_id; ?>)"></i></button>
 											</td>
 										</tr> <?php }
@@ -107,18 +111,15 @@
 													<center>
 														<label class="radio-inline">
 															<input type="radio" class="flat-green"checked="checked">
-															<a href="#">Registro Por Compra</a>
+															<a href="#" id="compra">Registro Por Compra</a>
 														</label>
 														<label class="radio-inline">
 															<input type="radio" class="flat-green" checked="checked">
-															<a href="#">Registro Por Parto</a>
+															<a href="#" id="parto">Registro Por Parto</a>
 														</label>
 													</center>
 												</div> <br>
 												<div class="form-group"> <center>
-													<button type="button" class="btn btn-teal" onclick="return guardar(this.form);"> 
-														<i class="fa fa-save"></i> Guardar 
-													</button>
 													<button type="button" class="sb-toggle btn btn-danger" onclick="nuevocancel()"> 
 														<i class="fa fa-times"></i> Cancelar 
 													</button>
@@ -132,8 +133,9 @@
 						<div class="user-chat">
 							<div class="panel panel-default">
 								<div class="panel-body">
-									<form class="form-horizontal" id="form_animal"><br>
-										<input type="hidden" name="id" class="form-control">
+									<form class="form-horizontal" id="form_animal" enctype="multipart/form-data"><br>
+										<input type="hidden" name="idani" id="idani">
+										<input type="hidden" name="ani_tiporeg" id="ani_tiporeg">
 										<div class="row">
 											<div class="col-md-8">
 												<div class="form-group">
@@ -141,7 +143,7 @@
 														RP Animal
 													</label>
 													<div class="col-sm-8">
-														<input type="text" name="nombre" id="nombre" class="form-control">
+														<input type="text" name="ani_rp" id="ani_rp" class="form-control">
 													</div>
 												</div>
 												<div class="form-group">
@@ -149,75 +151,103 @@
 														Nombre
 													</label>
 													<div class="col-sm-8">
-														<input type="text" name="nombre" id="nombre" class="form-control">
+														<input type="text" name="ani_nombre" id="ani_nombre" class="form-control">
 													</div>
 												</div>
 												<div class="form-group">
 													<label class="col-sm-4 control-label">
-														Foto
+														Raza
 													</label>
 													<div class="col-sm-8">
-														<input type="text" name="nombre" id="nombre" class="form-control">
+														<select class="form-control" id="ani_raza" name="ani_raza">
+															<option value="raza">Seleccione Raza</option>
+															<?php 
+																foreach ($Razas as $value) { ?>
+																	<option value="<?php echo $value->raz_id?>"><?php echo $value->raz_descripcion ?></option>
+																<?php }
+															?>
+														</select>
 													</div>
 												</div>
 											</div>
+
 											<div class="col-md-4">
 												<div class="fileupload fileupload-new" data-provides="fileupload">
-													<div class="fileupload-new thumbnail" style="width: 105px; height: 90px;"></div>
+													<div class="fileupload-new thumbnail" style="width: 110px; height: 90px;">
+														<img src="<?php echo base_url()?>Librerias/assets/images/web.jpg" alt="">
+													</div>
 													<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 105px; max-height: 90px; line-height: 20px;"></div>
 													<div>
 														<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Seleccionar</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Cambiar</span>
-															<input type="file">
+															<input type="file" id="imagen" name="imagen">
 														</span>
 													</div>
 												</div>
 											</div>
 										</div>
-										<div class="form-group">
-											<label class="col-sm-3 control-label">
-												Madre
-											</label>
-											<div class="col-sm-9">
-												<input type="text" name="nombre" id="nombre" class="form-control">
+										<div class="row">
+											<div class="col-md-8">
+												<div class="form-group">
+													<label class="col-sm-4 control-label">
+														Madre
+													</label>
+													<div class="col-sm-8">
+														<input type="text" name="ani_madre" id="ani_madre" class="form-control">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-4 control-label">
+														Padre
+													</label>
+													<div class="col-sm-8">
+														<input type="text" name="ani_padre" id="ani_padre" class="form-control">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-4 control-label">
+														Fecha Nac.
+													</label>
+													<div class="col-sm-8">
+														<input type="text" data-date-format="dd-mm-yyyy" class="form-control date-picker" id="ani_fechanac" name="ani_fechanac">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-4 control-label">
+														Sexo
+													</label>
+													<div class="col-md-8">
+														<label class="radio-inline">
+															<input type="radio" id="macho" name="ani_sexo" value="M">Macho
+														</label>
+														<label class="radio-inline">
+															<input type="radio" id="hembra" name="ani_sexo" value="H">Hembra
+														</label>
+													</div>
+												</div>
+												<div class="form-group" id="proveedor">
+													<label class="col-sm-4 control-label">
+														Proveedor
+													</label>
+													<div class="col-sm-8">
+														<input type="text" name="ani_proveedor" id="ani_proveedor" class="form-control">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-sm-4 control-label">
+														Descripcion
+													</label>
+													<div class="col-sm-8">
+														<input type="text" name="ani_descripcion" id="ani_descripcion" class="form-control">
+													</div>
+												</div>
 											</div>
 										</div>
-										<div class="form-group">
-											<label class="col-sm-3 control-label">
-												Padre
-											</label>
-											<div class="col-sm-9">
-												<input type="text" name="nombre" id="nombre" class="form-control">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-3 control-label">
-												Fecha
-											</label>
-											<div class="col-sm-9">
-												<input type="text" data-date-format="dd-mm-yyyy" data-date-viewmode="years" class="form-control date-picker">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-3 control-label">
-												Sexo
-											</label>
-											<div class="col-md-9">
-												<label class="radio-inline">
-													<input type="radio" class="flat-green"name="sexo">Macho
-												</label>
-												<label class="radio-inline">
-													<input type="radio" class="flat-green" name="sexo">Hembra
-												</label>
-											</div>
-										</div>
+										
 										<div class="form-group"> <center>
 											<button type="button" class="btn btn-teal" onclick="return guardar(this.form);"> 
 												<i class="fa fa-save"></i> Guardar 
 											</button>
-											<button type="button" class="sb-toggle btn btn-danger"onclick="nuevocancel()"> 
-												<i class="fa fa-times"></i> Cancelar 
-											</button>
-											<button type="button" class="sidebar-back btn btn-danger"onclick="nuevocancel()"> 
+											<button type="button" class="sidebar-back btn btn-warning" onclick="nuevocancel()"> 
 												<i class="fa fa-chevron-circle-left"></i> Atras 
 											</button>
 										</center> </div>

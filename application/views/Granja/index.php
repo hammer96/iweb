@@ -72,7 +72,7 @@
                                     <tbody>
                                         <?php 
                                             foreach ($Animales['animal'] as $key => $animal) { ?> <tr>
-                                                <td class="center" ><?php echo $animal['ani_rp']?></td>
+                                                <td class="center" ><?php echo $animal['ani_id']." / ".$animal['ani_rp'] ?></td>
                                                 <td class="center" ><?php echo $animal['ani_nombre'] ?></td>
 
                                                 <!-- Enero-->
@@ -80,7 +80,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="01") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top"  id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -91,7 +91,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="02") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top" id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -102,7 +102,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="03") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top"  id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -113,7 +113,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="04") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top"  id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -124,7 +124,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="05") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top"  id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -135,7 +135,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="06") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top"  id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -146,7 +146,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="07") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top" id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -157,7 +157,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="08") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top"  id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -168,7 +168,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="09") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top"  id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -179,7 +179,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="10") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top" id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -190,7 +190,7 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="11") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top"  id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
 	                                                	<?php } 
@@ -201,10 +201,10 @@
                                                 	<?php foreach ($animal['eventos'] as $key => $evento) { 
                                                 		$fecha=explode("-",$evento['eveani_fecha']);
 	                                                	if ($fecha[1]=="12") { ?>
-		                                                	<i class="<?php echo $evento['eve_simbolo'] ?>" id="simbolo">
+		                                                	<i class="tooltips <?php echo $evento['eve_simbolo'] ?>" data-original-title="<?php echo $evento['eve_descripcion'] ?>" data-placement="top"   id="simbolo" onclick="modificar('<?php echo $evento['eveani_refevento'] ?>','<?php echo $evento['eveani_evento'] ?>','<?php echo $evento['eveani_id'] ?>')">
 		                                                		<span class="diaevento" ><?php echo $fecha[2]?></span>
 		                                                	</i>
-	                                                	<?php } 
+	                                                	<?php }
 	                                                } ?>
 	                                            </td>
                                             </tr> <?php }
@@ -219,6 +219,23 @@
 			</div>
 		</div>
 
+		<!-- Mensaje Correcto-->
+	    <div id="Alert" class="modal fade" data-width="369" style="display: none;">
+	        <div class="row" id="Mensaje">
+			    <center> 
+			    	<h4 class="modal-title">
+			        	<div class="col-md-2" id="iconomensaje">
+			        	</div>
+				        <div class="col-md-10" id="textomensaje">
+			        	</div>	 				            	
+				    </h4> Sistema Granja Tarapoto <br><br>
+				    <button type="button" data-dismiss="modal" class="btn btn-teal" onclick="actualizar()">
+				        <i class="fa fa-times"></i> Ok. Cerrar
+				    </button>
+				</center>
+			</div>
+	    </div>
+	    
 		<!-- Para El Registro Nuevo-->
 		<div id="page-sidebar">
 			<a class="sidebar-toggler sb-toggle" href="#"><i class="fa fa-indent"></i></a>
@@ -233,32 +250,234 @@
 						<div class="panel panel-default">
 							<div class="panel-body">
 								<form class="form-horizontal" id="form_evento"> <br>
+									<input type="hidden" id="id" name="id">
+									<input type="hidden" id="refevento" name="refevento">
+									<input type="hidden" id="ani_id" name="ani_id">
 									<div class="form-group">
 										<label class="col-sm-3 control-label" for="form-field-1">
 											Evento
 										</label>
 										<div class="col-sm-9">
-											<select class="form-control">
-												<option value="Evento">Seleccione Evento</option>
-												<option value="Parto">Parto</option>
-												<option value="Servicio">Servicio</option>
-												<option value="Celo">Celo</option>
-												<option value="Aborto">Aborto</option>
-												<option value="Muerte">Muerte</option>
-												<option value="Venta">Venta</option>
+											<select class="form-control" id="evento" name="evento">
+												<option value="evento">Seleccionar Evento</option>
+												<?php 
+													foreach($Eventos as $value){ ?>
+														<option value="<?php echo $value->eve_id ?>"><?php echo $value->eve_descripcion ?></option>
+													<?php }
+												?>
 											</select>
 										</div>
 									</div>
+									<!-- Para Parto-->
+									<div id="parto">
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												RP Cria
+											</label>
+											<div class="col-sm-9">
+												<input type="text" id="rpparto" name="rpparto" class="form-control">
+											</div>
+										</div> 
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												Tipo Parto
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="tipoparto" name="tipoparto">
+													<option value="tipoparto">Seleccionar Tipo Parto</option>
+													<?php 
+														foreach($TipoPartos as $value){ ?>
+															<option value="<?php echo $value->tpa_id ?>"><?php echo $value->tpa_descripcion ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												Estado Cria
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="estadocria" name="estadocria">
+													<option value="estadocria">Seleccionar Estado Cria</option>
+													<?php 
+														foreach($EstadoCrias as $value){ ?>
+															<option value="<?php echo $value->etc_id ?>"><?php echo $value->etc_descripcion ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+									</div>
+									<!-- Para Aborto-->
+									<div id="aborto">
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												Causa Aborto
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="causaaborto" name="causaaborto">
+													<option value="causaaborto">Seleccionar Causa Aborto</option>
+													<?php 
+														foreach($CausaAbortos as $value){ ?>
+															<option value="<?php echo $value->cab_id ?>"><?php echo $value->cab_descripcion ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+									</div>	
+
+									<!-- Para Celo-->
+									<div id="celo">
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												Via Aplicacion
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="viaaplica" name="viaaplica">
+													<option value="viaaplica">Seleccionar Via Aplicacion</option>
+													<?php 
+														foreach($ViaAplicaciones as $value){ ?>
+															<option value="<?php echo $value->vap_id ?>"><?php echo $value->vap_descripcion ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												C.No Inseminal
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="causanoinse" name="causanoinse">
+													<option value="causanoinse">Seleccionar Causa No Insemial</option>
+													<?php 
+														foreach($CausaNoInse as $value){ ?>
+															<option value="<?php echo $value->cni_id ?>"><?php echo $value->cni_descripcion ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												Med. Genital
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="medgenital" name="medgenital">
+													<option value="medgenital">Seleccionar Medicina Genital</option>
+													<?php 
+														foreach($MedGenital as $value){ ?>
+															<option value="<?php echo $value->mdg_id ?>"><?php echo $value->mdg_descripcion ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+									</div>	
+
+									<!-- Para Servicio-->
+									<div id="servicio">
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												Tipo Servicio
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="tiposervicio" name="tiposervicio">
+													<option value="tiposervicio">Seleccionar Tipo Servicio</option>
+													<?php 
+														foreach($TipoServicios as $value){ ?>
+															<option value="<?php echo $value->tps_id ?>"><?php echo $value->tps_descripcion ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												Reproductor
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="reproductor" name="reproductor">
+													<option value="reproductor">Seleccionar Reproductor </option>
+													<?php 
+														foreach($Reproductores as $value){ ?>
+															<option value="<?php echo $value->rep_id ?>"><?php echo $value->rep_rp ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+									</div>									
+
+									<!-- Para Muerte-->
+									<div id="muerte">
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												Especif. Muerte
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="espmuerte" name="espmuerte">
+													<option value="espmuerte">Seleccionar Especificacion Muerte</option>
+													<?php 
+														foreach($EspMuerte as $value){ ?>
+															<option value="<?php echo $value->edm_id ?>"><?php echo $value->edm_descripcion ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+									</div>	
+
+									<!-- Para Venta-->
+									<div id="venta">
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												Especif. Venta
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="espventa" name="espventa">
+													<option value="espventa">Seleccionar Especificacion Venta</option>
+													<?php 
+														foreach($EspVenta as $value){ ?>
+															<option value="<?php echo $value->edv_id ?>"><?php echo $value->edv_descripcion ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+									</div>	
+
+									<!-- Para Secado-->
+									<div id="secado">
+										<div class="form-group">
+											<label class="col-sm-3 control-label" for="form-field-1">
+												Med.Cuartos M.
+											</label>
+											<div class="col-sm-9">
+												<select class="form-control" id="medcuartosm" name="medcuartosm">
+													<option value="medcuartosm">Seleccionar Med. C. Mamarios</option>
+													<?php 
+														foreach($MedCuartos as $value){ ?>
+															<option value="<?php echo $value->mdm_id ?>"><?php echo $value->mdm_descripcion ?></option>
+														<?php }
+													?>
+												</select>
+											</div>
+										</div> 
+									</div>	
+
 									<div class="form-group">
 										<label class="col-sm-3 control-label" for="form-field-1">
 											Fecha Evento
-										</label>W
+										</label>
 										<div class="col-sm-9">
-											<input type="text" id="fechaevento" class="form-control">
+											<input type="text" id="fechaevento" name="fechaevento" class="form-control">
 										</div>
 									</div> <br>
 									<div class="form-group"> <center>
-										<button type="button" class="btn btn-teal" onclick="return guardar(this.form);"> 
+										<button type="button" class="btn btn-teal" onclick="return guardar(this.form);">
 											<i class="fa fa-save"></i> Guardar 
 										</button>
 										<button type="button" class="sb-toggle btn btn-danger" onclick="nuevocancel()"> 
